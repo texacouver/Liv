@@ -6,27 +6,21 @@ The product thinking, discovery research, prototype evolution, and MVP experienc
 
 A mobile-first web application that helps users discover local events and deals in Vancouver with personalized recommendations powered by an early rule-based scoring prototype.
 
-## Screenshots
+## Product mockups
 
-### Home Page with Personalized Recommendations
-![Home Page](https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop)
-*Browse events, restaurant deals, and retail offers with personalized recommendations at the top*
+Concept visuals exploring Liv's mobile experience, with illustrative events and planning information. These are design mockups, not screenshots of shipped functionality.
 
-### Interactive Map View
-![Map View](https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&h=600&fit=crop)
-*Explore Vancouver venues on an interactive map with custom markers and popups*
+### Tonight discovery
+![Liv Tonight discovery feed and jazz event details](docs/assets/liv-tonight-3000.jpg)
+Discover local experiences with time, price, travel time, and wait information.
 
-### Listing Details with QR Codes
-![Detail View](https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop)
-*Detailed venue information with QR codes for easy deal redemption*
+### Event details
+![Liv rooftop event details with distance, transit, tickets, wait, dress code, and vegan options](docs/assets/liv-event-detail-3000.jpg)
+See the practical details needed to decide whether an event fits your night.
 
-### Profile & Preferences
-![Profile View](https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&h=600&fit=crop)
-*Manage your preferences, view achievements, and customize your experience*
-
-### Category Filtering
-![Categories](https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop)
-*Filter by events, restaurant deals, or retail offers with vibrant category-specific colors*
+### Nearby and Saved
+![Liv Nearby map and Saved shortlist of local experiences](docs/assets/liv-nearby-saved-3000.jpg)
+Explore nearby options and keep a shortlist of possible plans.
 
 ## Live Demo Features
 
