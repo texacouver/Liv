@@ -1,190 +1,60 @@
-# Liv - Local Events & Deals Platform
+# Liv
 
-## Product case study
+### From finding local experiences to confidently choosing one
 
-The product thinking, discovery research, prototype evolution, and MVP experience direction are documented in [the canonical Liv PM case study](docs/Liv_Canonical_PM_Case_Study.md). The accompanying MVP screen presentation is available at [docs/assets/liv-mvp-flow.png](docs/assets/liv-mvp-flow.png).
+A personal product-discovery project exploring how people decide what to do in Vancouver. Liv combines an AI-assisted web prototype, qualitative research, and mobile concept mockups.
 
-A mobile-first web application that helps users discover local events and deals in Vancouver with personalized recommendations powered by an early rule-based scoring prototype.
+**The central product decision:** shift from aggregating more listings toward helping people judge whether an outing fits their time, budget, location, and plans.
 
-## Product mockups
+[Read the product case study](docs/Liv_Canonical_PM_Case_Study.md) · [Explore the visual concepts](docs/Product_Visuals.md) · [Inspect the prototype](Liv/README.md)
 
-Concept visuals exploring Liv's mobile experience, with illustrative events and planning information. These are design mockups, not screenshots of shipped functionality.
+![Liv mobile concept: Tonight discovery and jazz-event details in two phone mockups](docs/assets/liv-tonight-3000.jpg)
 
-### Tonight discovery
-![Liv Tonight discovery feed and jazz event details](docs/assets/liv-tonight-3000.jpg)
-Discover local experiences with time, price, travel time, and wait information.
+*Concept presentation, not an app screenshot. Events, prices, travel times, and wait information are illustrative.*
 
-### Event details
-![Liv rooftop event details with distance, transit, tickets, wait, dress code, and vegan options](docs/assets/liv-event-detail-3000.jpg)
-See the practical details needed to decide whether an event fits your night.
+## Project at a glance
 
-### Nearby and Saved
-![Liv Nearby map and Saved shortlist of local experiences](docs/assets/liv-nearby-saved-3000.jpg)
-Explore nearby options and keep a shortlist of possible plans.
+| | |
+|---|---|
+| **My contribution** | Product concept and direction, AI-assisted prototyping, discovery research, synthesis, and V2 concept testing |
+| **Process** | Initial idea → prototype → discovery → revised product strategy → V2 concept feedback |
+| **Research reported in the case study** | 12 survey respondents, four behavioural walkthroughs, five V2 concept tests; these are separate activities, not a verified total of unique participants |
+| **Outcome so far** | A narrower product thesis, revised priorities, and a proposed sequence of experiments |
+| **Stage** | Personal prototype and formative research; no commercial launch or measured product impact |
 
-## Live Demo Features
+## Three decisions that shaped the direction
 
-### Recommendation Engine in Action
-The app learns from your behavior and provides increasingly personalized suggestions:
-- Browse restaurant deals → Get more food recommendations
-- Check out Science World → See similar educational attractions
-- Save events to favorites → Discover concerts and cultural events
+| Research signal reported in the case study | Product decision | Trade-off |
+|---|---|---|
+| People cross-checked logistics across several sources | Bring time, price, travel, and practical context into the decision flow | Reliable information matters more than listing volume |
+| V2 testers described sharing options before committing | Prioritize sharing into existing conversations | Defer a standalone social network |
+| Wait times and availability influenced concept choices | Test a small, manually verified local offering first | Establish supply reliability before automating or expanding |
 
-### Real Vancouver Venues
-Experience authentic local data including:
-- **Restaurants**: Cactus Club Cafe, Granville Island Brewery, Tim Hortons
-- **Events**: The Commodore Ballroom concerts, Queen Elizabeth Theatre shows
-- **Attractions**: Science World exhibits, VanDusen Botanical Garden tours
-- **Retail**: Nordstrom sales, Aritzia collections, Lululemon activewear
+These findings informed the direction; they do not establish demand, retention, or willingness to pay. The [case study](docs/Liv_Canonical_PM_Case_Study.md) explains the evidence and limitations.
 
-### Interactive Features
-- Tap venue markers on the map to see instant previews
-- Swipe through recommendation cards with smooth animations
-- Scan QR codes for immediate deal activation
-- Toggle between light and dark themes
-- Set your preferred maximum distance for venue suggestions
+## What you can inspect
 
-## Key Features Showcase
+| Artifact | What it demonstrates | Boundary |
+|---|---|---|
+| [Product case study](docs/Liv_Canonical_PM_Case_Study.md) | Problem framing, synthesis, prioritization, and proposed measurement | Raw participant records are not included in this repository |
+| [Mobile mockups](docs/Product_Visuals.md) | A proposed Tonight → details → Nearby/Saved experience | Illustrative concepts; not presented as the exact screens used in the earlier tests |
+| [Web prototype source](Liv/) | React/TypeScript app, listing APIs, maps, preferences, and rule-based scoring | Partial implementation with seeded content and documented gaps |
+| [Prototype status and next improvements](docs/Prototype_Status.md) | What exists, what remains incomplete, and review priorities | Source inspection, not end-to-end runtime certification |
 
-### 🎯 Smart Discovery Experience
-- **Personalized Recommendations**: AI-powered suggestion engine learns from your interactions
-- **Real Vancouver Data**: Authentic venues including Cactus Club, Science World, The Commodore Ballroom
-- **Interactive Maps**: Leaflet-powered mapping with custom markers and venue clustering
-- **QR Code Integration**: Instant deal redemption with unique QR codes for each offer
-- **Intelligent Search**: Real-time search with fuzzy matching and category filtering
+## Visual direction
 
-### 🤖 Advanced Recommendation Engine
-- **Preference Learning**: Tracks category preferences (events, restaurants, retail)
-- **Behavioral Analysis**: Learns from clicks, views, and favorite interactions
-- **Dynamic Scoring**: Real-time recommendation recalculation based on activity
-- **Location Awareness**: Distance-based filtering with customizable radius
-- **Price Range Matching**: Budget-conscious recommendations ($, $$, $$$, $$$$)
+The web Home screen explores visionOS-inspired translucent panels, depth, rounded controls, and purple accents. The mobile mockups explore a related dark interface with green action accents and a simplified three-tab navigation. They are distinct explorations, not a single fully implemented design system or a native visionOS app.
 
-### 🎨 Premium User Experience
-- **Mobile-First Design**: Optimized for iOS and Android with touch-friendly interfaces
-- **Vibrant Visual Design**: Category-specific gradients (purple for events, orange for restaurants, green for retail)
-- **Micro-Animations**: Smooth transitions, hover effects, staggered loading animations
-- **Accessibility**: Screen reader friendly with proper ARIA labels and semantic HTML
-- **Theme Support**: Seamless dark/light mode switching with system preference detection
+The [visual walkthrough](docs/Product_Visuals.md) connects each mockup to a product question and explains what would need testing.
 
-### 📱 Complete App Ecosystem
-- **Bottom Navigation**: Easy access to Home, Map, Favorites, Profile, and QR scanner
-- **Profile Management**: User achievements, statistics tracking, and preference customization
-- **Favorites System**: Save and organize preferred venues and events
-- **Real-time Updates**: Live data synchronization with instant UI updates
+## What I would test next
 
-## Tech Stack
+**Can a small set of verified local options help someone choose a feasible outing?** Start with a concierge pilot in one Vancouver neighbourhood, then test decision value, personalization, group decisions, and repeat use in that order.
 
-### Frontend
-- **React 18** with TypeScript
-- **Vite** for fast development and builds
-- **Tailwind CSS** with shadcn/ui components
-- **TanStack Query** for server state management
-- **Wouter** for lightweight routing
-- **Leaflet** for interactive maps
+Proposed measures include time-to-choice, confidence, meaningful next steps, and information accuracy. No results from this pilot are being claimed. See the [experiment sequence](docs/Liv_Canonical_PM_Case_Study.md#11-next-experiments-reduce-uncertainty-in-sequence).
 
-### Backend
-- **Node.js** with Express.js
-- **PostgreSQL** with Neon Database
-- **Drizzle ORM** for type-safe database operations
-- **Zod** for runtime validation
+## Technical entry point
 
-## Getting Started
+Application code and package scripts live in **`Liv/`**, not the repository root. See [setup and implementation notes](Liv/README.md) for the database requirement, commands, and current limitations.
 
-### Prerequisites
-- Node.js 18+
-- PostgreSQL database
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/your-username/liv-local-events-app.git
-cd liv-local-events-app
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Set up environment variables:
-```bash
-# Create .env file with your database URL
-DATABASE_URL=your_postgresql_connection_string
-```
-
-4. Push database schema:
-```bash
-npm run db:push
-```
-
-5. Seed the database:
-```bash
-curl -X POST http://localhost:5000/api/seed
-```
-
-6. Start the development server:
-```bash
-npm run dev
-```
-
-The app will be available at `http://localhost:5000`
-
-## API Endpoints
-
-### Listings
-- `GET /api/listings` - Get all listings
-- `GET /api/listings/:id` - Get specific listing
-- `GET /api/listings/type/:type` - Filter by type
-- `GET /api/listings/search?q=query` - Search listings
-
-### Recommendations
-- `GET /api/recommendations` - Get personalized recommendations
-- `POST /api/recommendations/refresh` - Force refresh recommendations
-
-### User Preferences
-- `GET /api/preferences` - Get user preferences
-- `POST /api/preferences` - Update user preferences
-
-### Interactions
-- `POST /api/interactions` - Track user interaction
-
-## Data
-
-The app includes authentic Vancouver venue data:
-- **Restaurants**: Cactus Club, Granville Island Brewery, Tim Hortons
-- **Events**: The Commodore Ballroom, Queen Elizabeth Theatre
-- **Attractions**: Science World, VanDusen Botanical Garden
-- **Retail**: Nordstrom, Aritzia, Lululemon
-
-## Database Schema
-
-### Core Tables
-- `listings` - Events, restaurants, and retail deals
-- `users` - User profiles and authentication
-- `favorites` - User favorite listings
-
-### Recommendation Engine
-- `user_preferences` - User preference settings
-- `user_interactions` - Tracking user behavior
-- `recommendation_scores` - Calculated recommendation scores
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Vancouver venue data and images from authentic sources
-- UI components built with shadcn/ui
-- Maps powered by Leaflet and OpenStreetMap
-- Built with ❤️ for the Vancouver community
+The implementation uses React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui, TanStack Query, Express, Drizzle ORM, Neon PostgreSQL, and Leaflet. Recommendation scoring uses explicit weighted rules; it is not a trained machine-learning model.

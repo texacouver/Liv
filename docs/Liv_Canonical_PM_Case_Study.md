@@ -2,6 +2,8 @@
 
 ## From discovering local experiences to confidently choosing one
 
+[Portfolio overview](../README.md) · [Visual concepts](Product_Visuals.md) · [Prototype status](Prototype_Status.md)
+
 Liv is a product concept and functional prototype for personalized local discovery. I built the initial prototype after noticing that interesting, smaller-scale experiences were difficult to find unless someone already knew where to look.
 
 The initial ambition was broad: put the interesting things happening in a city in one place. Research later changed the product question. People could usually find options; the harder problem was deciding whether an option was relevant, feasible, trustworthy, and worth sending to friends.
@@ -10,11 +12,23 @@ The initial ambition was broad: put the interesting things happening in a city i
 
 **My role:** Product concept, product decisions, prototype direction, AI-assisted implementation, discovery research, synthesis, and V2 concept testing.
 
-**Status:** Functional prototype and qualitative research project. No commercial launch, revenue, or product-market validation is being claimed.
+**Status:** Personal web prototype and qualitative research project. No commercial launch, revenue, or product-market validation is being claimed.
+
+### The project in one minute
+
+| Starting point | What changed | Resulting decision |
+|---|---|---|
+| Aggregate interesting local experiences | Research described the work of checking whether an option was feasible | Prioritize decision context over inventory breadth |
+| Build social features around discovery | Testers described sharing into existing conversations | Prioritize shareability before a standalone social network |
+| Personalize a broad feed | Logistics and information reliability shaped concept choices | Test verified local supply and decision value before expanding |
+
+**Outcome to date:** a revised product thesis, concept direction, and experiment sequence. These are learning and prioritization outputs; improved conversion, retention, or time-to-choice have not been measured.
 
 ### Evidence key
 
-Throughout this case study, **observed** refers to behaviour documented in the research archive or functionality confirmed in the repository. **Interpretation** refers to my synthesis of that evidence. **Proposal** refers to what I would test or build if Liv were developed further.
+Throughout this case study, **observed** refers to participant behaviour reported in the research write-up. **Interpretation** refers to my synthesis of that evidence. **Proposal** refers to what I would test or build if Liv were developed further. Code presence is described separately from verified end-to-end functionality.
+
+**Source availability:** the sample sizes, quotations, and participant summaries below are preserved from the existing case study. Raw survey responses, walkthrough records, and V2 session notes are not included in this repository, so readers cannot independently audit those findings here. The three activities may overlap; their counts should not be added to claim a unique participant total.
 
 ---
 
@@ -38,18 +52,13 @@ This was a starting hypothesis, not a validated conclusion.
 
 ## 2. Building the first prototype
 
-I built a functional mobile-first web prototype using Replit and AI-assisted development. I am not presenting this as conventional software-engineering work. My contribution was translating product ideas and requirements into a working prototype, evaluating the results, and iterating on the product direction.
+I built a functional mobile-first web prototype using Replit and AI-assisted development. My contribution was translating product ideas and requirements into a working prototype, evaluating the results, and iterating on the product direction.
 
-The repository confirms prototype functionality for:
+The repository contains implementations for seeded listings, category filtering, map display, geolocation, preference storage, interaction endpoints, and recommendation scoring. It also contains partial Favorites, Profile, and Liv Pass flows.
 
-- Vancouver listings across events, restaurants, attractions, and retail offers
-- Search and category filtering
-- Geolocation and distance calculations
-- Interactive map discovery
-- Favorites and profile/preferences flows
-- QR-code deal redemption
-- Interaction tracking for views, favorites, deal use, and sharing
-- Preference- and interaction-based recommendation scoring
+A review of the current source found that search is blocked by route ordering, saved items are not persisted across the journey, and Liv Pass displays a placeholder icon and text code rather than merchant redemption. The newer Home screen's distance and live-context controls are visual state only. See [prototype status](Prototype_Status.md) for the code evidence and prioritized follow-ups.
+
+The current web Home treatment explores visionOS-inspired glass panels and depth. The [mobile mockups](Product_Visuals.md) are separate visual explorations of the revised product direction; they are not proof that the full V2 experience is implemented.
 
 The recommendation system is best described as a **rule-based scoring prototype**, not machine learning. It combines factors such as category preference, price range, tags, interaction history, ratings, and recency.
 
@@ -165,6 +174,16 @@ The concept was explicitly a **prototype for user testing, not a working product
 
 ## 8. What the five V2 tests suggested
 
+The table summarizes the reported session evidence; it is not a new coding exercise or a usability success-rate calculation.
+
+| Reported signal | Evidence in this write-up | Decision implication | Still untested |
+|---|---|---|---|
+| Logistics shaped feasibility | UT2: free entry window and travel time; UT5: later start | Show practical context early | Whether it improves real choices |
+| Explanations helped perceived trust | UT1 and UT3: music-based rationale | Test meaningful recommendation explanations | Whether personalization outperforms a basic feed |
+| Sharing preceded commitment | All five testers described sending an option | Support existing conversations | Whether groups converge faster |
+| Operational details mattered | Wait and availability appeared in testers' reasoning | Validate data reliability before promising live context | Whether signals can be maintained accurately |
+
+
 Five local participants explored the concept using the scenario: “It’s Friday at 7 PM. You and a friend want to do something tonight, but neither of you has anything particular in mind. You open this app. Show me what you would do.”
 
 ### Logistics shaped the choice
@@ -263,7 +282,17 @@ I would sequence future work around the biggest risks rather than adding feature
 4. **Group decisions:** Does sharing a recommendation help groups converge faster?
 5. **Repeat value:** After one successful decision, do people return when they next want something to do?
 
-The first experiment I would run is a narrow concierge-style pilot in one Vancouver neighbourhood. I would manually curate a small set of experiences, attach verified logistics, and measure whether users can choose and share an option faster than with their existing workflow. This would test the product’s core value before investing heavily in integrations or automated supply acquisition.
+The first experiment I would run is a narrow concierge-style pilot in one Vancouver neighbourhood. I would manually curate a small set of experiences and attach verified logistics before investing heavily in integrations or automated supply acquisition.
+
+| Pilot element | Proposed approach |
+|---|---|
+| Supply gate | Verify timing, price, location, and source freshness; mark unknown information explicitly |
+| Comparison | Compare the contextual shortlist with participants' usual planning workflow; document differences in available options and alternate task order where feasible |
+| Measures | Time-to-choice, confidence, meaningful next step, and incorrect or stale information |
+| Decision rule | Define thresholds before recruiting. Continue only if information can be maintained and the evidence supports a useful decision advantage; revise or stop if either fails |
+| Follow-up | Ask whether the outing happened and whether people return for a new decision; saving or sharing alone does not establish attendance |
+
+This is a proposed protocol, not an experiment already conducted. Sample size and numerical success thresholds remain to be set.
 
 ---
 
@@ -271,7 +300,7 @@ The first experiment I would run is a narrow concierge-style pilot in one Vancou
 
 The most important change was not a screen-level redesign. It was changing the product’s job.
 
-I began with an aggregation idea: put more local experiences in one place. Research showed that abundance alone would not solve the problem. Users already found options; they struggled to establish enough confidence to act.
+I began with an aggregation idea: put more local experiences in one place. Research suggested that abundance alone would not solve the problem. Users already found options; they struggled to establish enough confidence to act.
 
 That changed how I thought about personalization, social features, real-time data, and prioritization. Personalization became more than “show users things they may like.” It had to be explainable and grounded in the current situation. Social functionality became less about building a network and more about helping people share a decision. Real-time data became valuable because it could prevent a recommendation from becoming a bad plan.
 

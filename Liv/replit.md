@@ -1,4 +1,6 @@
-# Liv - Local Events & Deals Platform
+# Liv — historical development notes
+
+> Historical notes from the initial Replit build. Capability descriptions and changelog entries below record development intentions and reports; they are not a current verification of functionality. Use the [technical README](README.md), [prototype status](../docs/Prototype_Status.md), and [product case study](../docs/Liv_Canonical_PM_Case_Study.md) for the current presentation. In particular, the current source has no in-memory storage fallback or completed authentication, uses rule-based scoring, and contains partial favorites and pass flows.
 
 ## Overview
 
