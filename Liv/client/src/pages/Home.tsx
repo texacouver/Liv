@@ -6,8 +6,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { parseCoordinate } from "@/lib/utils";
 import { Listing } from "@shared/schema";
-import { CircleDollarSign, Clock3, Heart, MapPin, Navigation, Search, SlidersHorizontal, Sparkles } from "lucide-react";
+import { CircleDollarSign, Clock3, Heart, MapPin, Navigation, Search, SlidersHorizontal, Sparkles, UserCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { BottomNavigation } from "@/components/BottomNavigation";
 
 const categories = [{ id: "all", label: "For you" }, { id: "events", label: "Music" }, { id: "restaurants", label: "Food" }, { id: "retail", label: "Local" }];
 const categoryType = (id: string) => id === "events" ? "Event" : id === "restaurants" ? "Restaurant Deal" : "Retail Deal";
@@ -32,7 +33,7 @@ export function Home() {
   });
 
   return <main className="liv-home">
-    <header className="liv-home-header"><div className="liv-location"><span className="liv-wordmark">liv</span><span><MapPin size={13} /> Vancouver</span></div><button className="liv-icon-button" aria-label="Adjust recommendations"><SlidersHorizontal size={19} /></button></header>
+    <header className="liv-home-header"><div className="liv-location"><span className="liv-wordmark">liv</span><span><MapPin size={13} /> Vancouver</span></div><button className="liv-icon-button" aria-label="Adjust recommendations"><UserCircle size={20} /></button></header>
     <section className="liv-home-intro"><p>Friday night</p><h1>Tonight</h1><span>Good plans, close by.</span></section>
     <label className="liv-search"><Search size={19} aria-hidden="true" /><input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Find your kind of night" aria-label="Search places and events" /></label>
     <div className="liv-category-list" role="tablist" aria-label="Categories">{categories.map((category) => <button key={category.id} role="tab" aria-selected={activeCategory === category.id} className={activeCategory === category.id ? "is-active" : ""} onClick={() => setActiveCategory(category.id)}>{category.label}</button>)}</div>
@@ -44,6 +45,6 @@ export function Home() {
       })}
       {!isLoading && !isSearching && visible.length === 0 && <p className="liv-empty">No places found. Try another search.</p>}
     </section>
-    <nav className="liv-dock" aria-label="Primary navigation"><button className="is-active" onClick={() => setLocation("/")}>Tonight</button><button onClick={() => setLocation("/map")}>Nearby</button><button onClick={() => setLocation("/favorites")}>Saved</button></nav>
+    <BottomNavigation />
   </main>;
 }
