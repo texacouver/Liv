@@ -33,3 +33,26 @@ button, a, [role="button"] { touch-action:manipulation; user-select:none; -webki
 @media (hover:hover) and (pointer:fine) { .liv-saved-row:hover,.liv-nearby-row:hover { background:#282927; } }
 
 .liv-account-card,.liv-settings-row { display:flex; align-items:center; border:1px solid rgba(255,255,255,.1); background:#1e1f1e; }.liv-account-card { gap:.85rem; padding:1rem; border-radius:1.2rem; }.liv-account-mark { display:grid; width:3rem; height:3rem; place-items:center; border-radius:50%; background:#42d675; color:#102117; font-weight:900; font-size:1.2rem; }.liv-account-card h2,.liv-settings-section h2 { margin:0; font-size:1rem; }.liv-account-card p { display:flex; align-items:center; gap:.25rem; margin:.3rem 0 0; color:#aaa9a3; font-size:.82rem; }.liv-settings-section { margin-top:1.6rem; }.liv-settings-section h2 { margin-bottom:.65rem; color:#aaa9a3; font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; }.liv-preference-tags { display:flex; flex-wrap:wrap; gap:.45rem; margin-bottom:.65rem; }.liv-preference-tags span { padding:.4rem .6rem; border:1px solid rgba(66,214,117,.45); border-radius:999px; color:#42d675; font-size:.78rem; }.liv-settings-row { justify-content:space-between; width:100%; min-height:3.5rem; padding:0 .9rem; border-radius:1rem; color:#f4f2ed; text-align:left; }.liv-settings-row span { display:flex; align-items:center; gap:.6rem; }.liv-settings-row em { color:#42d675; font-size:.78rem; font-style:normal; font-weight:800; }.liv-pass-page { display:grid; grid-template-rows:auto 1fr auto; gap:1.5rem; }.liv-pass-header { display:flex; align-items:center; justify-content:space-between; }.liv-back-button { display:flex; align-items:center; justify-content:center; gap:.35rem; min-height:2.45rem; padding:0 .85rem; border:1px solid rgba(255,255,255,.14); border-radius:999px; background:rgba(19,20,19,.52); color:#fff; }.liv-pass-card { display:grid; align-content:center; text-align:center; padding:1.5rem; border-radius:1.45rem; background:#e9e4d8; color:#171916; box-shadow:0 1.5rem 2.8rem rgba(0,0,0,.17); }.liv-pass-card h1 { margin:.5rem 0 0; font-size:clamp(2rem,9vw,3.4rem); line-height:.95; letter-spacing:-.06em; }.liv-pass-card>p:not(.liv-detail-kicker) { margin:.6rem 0 1.5rem; color:#63645d; }.liv-qr { display:grid; place-items:center; gap:.65rem; width:min(100%,17rem); aspect-ratio:1; margin:auto; padding:1.2rem; border-radius:1rem; background:#fff; color:#171916; }.liv-qr code { font-size:.7rem; letter-spacing:.1em; word-break:break-all; }.liv-pass-valid { display:grid; gap:.3rem; margin-top:1.4rem; }.liv-pass-valid span { color:#63645d; font-size:.78rem; }.liv-pass-valid strong { color:#1f6a37; font-size:1.7rem; }.liv-pass-valid strong.is-expired { color:#b42318; }.liv-pass-page>.liv-primary-action { width:100%; }
+
+/* Mockup visual language: cinematic cards, quiet chrome, green action signal. */
+.liv-home,.liv-page { background:#0d0e0f; }
+.liv-home-header { padding-top:.15rem; }
+.liv-wordmark { font-size:2rem; letter-spacing:-.12em; }
+.liv-poster-card { background:#17191a; color:#f7f5ef; border:1px solid rgba(255,255,255,.12); border-radius:1rem; box-shadow:0 1.2rem 2.8rem rgba(0,0,0,.28); }
+.liv-poster-image { height:15.5rem; }
+.liv-poster-image img { filter:saturate(.9) contrast(1.04); }
+.liv-poster-copy { padding:1rem 1rem .35rem; }
+.liv-poster-copy h2 { color:#f7f5ef; font-size:clamp(1.55rem,6vw,2.15rem); }
+.liv-poster-copy p { color:#b7b8b3; }
+.liv-poster-facts { padding:0 1rem 1rem; }
+.liv-poster-facts span { border-color:rgba(255,255,255,.15); color:#d4d3cd; background:rgba(255,255,255,.05); }
+.liv-poster-footer { border-top-color:rgba(255,255,255,.12); }
+.liv-poster-footer p { color:#b7b8b3; }
+.liv-poster-footer strong { color:#42d675; }
+.liv-dock { background:rgba(20,21,22,.92); border-color:rgba(255,255,255,.18); }
+.liv-dock button.is-active { background:#42d675; color:#102117; }
+.liv-home-intro h1,.liv-page-intro h1 { font-weight:760; }
+.liv-detail-image { filter:saturate(.9) contrast(1.04); }
+.liv-detail-copy { background:#0d0e0f; }
+.liv-detail-rows p { background:#1a1c1d; border-color:rgba(255,255,255,.12); }
+@media (min-width:44rem) { .liv-poster-card:first-child .liv-poster-image { height:21rem; } }
