@@ -7,6 +7,7 @@ import { useGeolocation } from "@/hooks/useGeolocation";
 import { parseCoordinate } from "@/lib/utils";
 import { Listing } from "@shared/schema";
 import { CircleDollarSign, Clock3, Heart, MapPin, Navigation, Search, SlidersHorizontal, Sparkles } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 const categories = [{ id: "all", label: "For you" }, { id: "events", label: "Music" }, { id: "restaurants", label: "Food" }, { id: "retail", label: "Local" }];
 const categoryType = (id: string) => id === "events" ? "Event" : id === "restaurants" ? "Restaurant Deal" : "Retail Deal";
@@ -24,7 +25,11 @@ export function Home() {
   const { data: searchResults, isLoading: isSearching } = useQuery<Listing[]>({ queryKey: ["/api/listings/search", searchQuery], queryFn: async () => { const response = await fetch(`/api/listings/search?q=${encodeURIComponent(searchQuery)}`); if (!response.ok) throw new Error("Search failed"); return response.json(); }, enabled: Boolean(searchQuery.trim()) });
   const source = searchQuery.trim() ? searchResults : recommendations?.length ? recommendations : listings;
   const visible = (source || []).filter((listing) => activeCategory === "all" || listing.type === categoryType(activeCategory)).map((listing) => ({ ...listing, distance: deviceLocation ? distanceBetween(deviceLocation.latitude, deviceLocation.longitude, parseCoordinate(listing.latitude), parseCoordinate(listing.longitude)) : undefined }));
-  const toggleSaved = (id: number) => setSavedIds((ids) => ids.includes(id) ? ids.filter((savedId) => savedId !== id) : [...ids, id]);
+  const toggleSaved = (id: number, name: string) => setSavedIds((ids) => {
+    const isSaved = ids.includes(id);
+    toast({ title: isSaved ? "Removed from Saved" : "Saved for later", description: name });
+    return isSaved ? ids.filter((savedId) => savedId !== id) : [...ids, id];
+  });
 
   return <main className="liv-home">
     <header className="liv-home-header"><div className="liv-location"><span className="liv-wordmark">liv</span><span><MapPin size={13} /> Vancouver</span></div><button className="liv-icon-button" aria-label="Adjust recommendations"><SlidersHorizontal size={19} /></button></header>
@@ -35,7 +40,7 @@ export function Home() {
     <section className="liv-card-list" aria-label="Recommended places">
       {isLoading || isSearching ? [1, 2, 3].map((item) => <div className="liv-poster-skeleton" key={item}><Skeleton className="h-56 w-full rounded-2xl bg-white/10" /><Skeleton className="mt-4 h-9 w-2/3 bg-white/10" /></div>) : visible.slice(0, 6).map((listing, index) => {
         const isSaved = savedIds.includes(listing.id);
-        return <article className="liv-poster-card" key={listing.id}><div className="liv-poster-image"><img src={listing.imageUrl} alt="" /><span className="liv-poster-date">{index === 0 ? <>Top<br />pick</> : <>Tonight<br />nearby</>}</span><button className={`liv-save-button ${isSaved ? "is-saved" : ""}`} aria-label={`${isSaved ? "Remove" : "Save"} ${listing.name}`} aria-pressed={isSaved} onClick={() => toggleSaved(listing.id)}><Heart size={18} fill={isSaved ? "currentColor" : "none"} /></button></div><div className="liv-poster-copy"><h2>{listing.name}</h2><p>{listing.city} · {listing.type.replace(" Deal", "")}</p></div><div className="liv-poster-facts"><span><Clock3 size={13} /> Ends {formatTime(listing.validUntil)}</span>{listing.distance !== undefined && <span><Navigation size={13} /> {listing.distance.toFixed(1)} km</span>}<span><CircleDollarSign size={13} /> {listing.priceRange || "$$"}</span><span className="liv-availability">Low wait</span></div><footer className="liv-poster-footer"><p><Sparkles size={13} /><span><strong>Why Liv picked it</strong>A close match for your saved interests.</span></p><button className="liv-primary-action" onClick={() => setLocation(`/detail/${listing.id}`)}>View</button></footer></article>;
+        return <article className="liv-poster-card" key={listing.id}><div className="liv-poster-image"><img src={listing.imageUrl} alt="" /><span className="liv-poster-date">{index === 0 ? <>Top<br />pick</> : <>Tonight<br />nearby</>}</span><button className={`liv-save-button ${isSaved ? "is-saved" : ""}`} aria-label={`${isSaved ? "Remove" : "Save"} ${listing.name}`} aria-pressed={isSaved} onClick={() => toggleSaved(listing.id, listing.name)}><Heart size={18} fill={isSaved ? "currentColor" : "none"} /></button></div><div className="liv-poster-copy"><h2>{listing.name}</h2><p>{listing.city} · {listing.type.replace(" Deal", "")}</p></div><div className="liv-poster-facts"><span><Clock3 size={13} /> Ends {formatTime(listing.validUntil)}</span>{listing.distance !== undefined && <span><Navigation size={13} /> {listing.distance.toFixed(1)} km</span>}<span><CircleDollarSign size={13} /> {listing.priceRange || "$$"}</span><span className="liv-availability">Low wait</span></div><footer className="liv-poster-footer"><p><Sparkles size={13} /><span><strong>Why Liv picked it</strong>A close match for your saved interests.</span></p><button className="liv-primary-action" onClick={() => setLocation(`/detail/${listing.id}`)}>View</button></footer></article>;
       })}
       {!isLoading && !isSearching && visible.length === 0 && <p className="liv-empty">No places found. Try another search.</p>}
     </section>
