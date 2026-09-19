@@ -8,6 +8,7 @@ import { parseCoordinate } from "@/lib/utils";
 import { Listing } from "@shared/schema";
 import { CircleDollarSign, Clock3, Heart, MapPin, Navigation, Search, SlidersHorizontal, Sparkles, UserCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { BottomNavigation } from "@/components/BottomNavigation";
 
 const categories = [{ id: "all", label: "For you" }, { id: "events", label: "Music" }, { id: "restaurants", label: "Food" }, { id: "retail", label: "Local" }];
 const categoryType = (id: string) => id === "events" ? "Event" : id === "restaurants" ? "Restaurant Deal" : "Retail Deal";
@@ -44,6 +45,6 @@ export function Home() {
       })}
       {!isLoading && !isSearching && visible.length === 0 && <p className="liv-empty">No places found. Try another search.</p>}
     </section>
-    <nav className="liv-dock" aria-label="Primary navigation"><button className="is-active" onClick={() => setLocation("/")}>Tonight</button><button onClick={() => setLocation("/map")}>Nearby</button><button onClick={() => setLocation("/favorites")}>Saved</button></nav>
+    <BottomNavigation />
   </main>;
 }
