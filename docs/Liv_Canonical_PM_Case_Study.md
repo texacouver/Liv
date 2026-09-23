@@ -47,7 +47,7 @@ The repository confirms prototype functionality for:
 - Geolocation and distance calculations
 - Interactive map discovery
 - Favorites and profile/preferences flows
-- QR-code deal redemption
+- QR-code deal screens (each deal shows its code with a countdown; nothing validates or redeems it at the venue)
 - Interaction tracking for views, favorites, deal use, and sharing
 - Preference- and interaction-based recommendation scoring
 
