@@ -60,8 +60,8 @@ These findings led to a single decision surface that combines availability, dist
     <td width="50%"><img src="docs/assets/liv-phone-hand.webp" alt="A hand holding a phone showing the Liv Nearby map with priced pins" /></td>
   </tr>
   <tr>
-    <td><b>Whether you can actually go.</b> Distance, transit, tickets, wait, dress code and food on one screen.</td>
-    <td><b>Nearby, in your hand.</b> What is open tonight, how far it is and what it costs.</td>
+    <td><b>All your questions answered, in one place.</b> Distance, transit, tickets, wait, dress code and food on one screen.</td>
+    <td><b>What’s nearby?</b> What’s open tonight, how far it is, and what it costs, without leaving the sidewalk.</td>
   </tr>
   <tr>
     <td><img src="docs/assets/liv-map.webp" alt="A dark street map of Vancouver with orange price pins for $18, Free and $12 events" /></td>
