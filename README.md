@@ -20,7 +20,7 @@ Liv is a product concept, a working prototype and a small user-research project 
 
 Deciding what to do on a given night means checking several places: social feeds, forums, ticketing sites. I wanted to understand where that process breaks down.
 
-Research showed that every night out is really six questions, and each one sends people to a different app:
+Research showed that every night out starts with six questions, and each one sends people to a different app:
 
 | Question | What people are asking | Where they go today |
 | --- | --- | --- |
