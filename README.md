@@ -12,8 +12,6 @@ Liv is a product concept, a working prototype and a small user-research project 
 
 ![Three Liv screens: the Tonight feed, the Nearby map and the Saved shortlist](docs/assets/liv-phones-lineup.webp)
 
-<sub>Concept mockups based on the prototype, not screenshots of shipped features.</sub>
-
 ---
 
 ## The problem
