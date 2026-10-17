@@ -45,7 +45,7 @@ Research showed that every night out starts with six questions, and each one sen
 
 These findings led to a single decision surface that combines availability, distance, price and trust signals.
 
-<sub>A convenience sample of 12 Vancouver-area respondents. Directional signal from structured interviews and concept testing, not a statistically representative study.</sub>
+<sub>A convenience sample of 12 people: 8 Vancouver locals and 4 visitors. Directional signal from structured interviews and concept testing, not a statistically representative study.</sub>
 
 ## The screens
 
@@ -78,7 +78,8 @@ These findings led to a single decision surface that combines availability, dist
 
 | Feature | Status | Detail |
 | --- | --- | --- |
-| Tonight feed with recommendations | Working | The feed ranks listings through a rule-based scoring API that weighs category preference, price range, tags, interaction history, ratings and recency. Not machine learning. |
+| Ranked Tonight feed | Working | The feed ranks listings through a rule-based scoring API that weighs category preference, price range, tags, interaction history, ratings and recency. Not machine learning. |
+| Personalization | Partly working | The score is built to change per person, but there are no accounts yet, so every request is scored as one sample user (`mock-user-1`). |
 | Search and category filtering | Working | Search across listings, and filter by music, food and local offers. |
 | Nearby map | Working | Leaflet map with a marker and popup per venue, and a list sorted by distance from your location. |
 | Event detail | Working | Price, place and timing for each listing, with its deal or ticket. |
@@ -103,6 +104,8 @@ The next tests, in order: **supply reliability** (enough current local inventory
 ---
 
 ## Running the prototype
+
+The code was built in Replit and uploaded here in July 2025, which is why the history starts with "Add files via upload" and why some Replit leftovers remain (Replit Auth tables, Replit Vite plugins, a mock user in place of sign-in). The docs and README were added in September and October 2026.
 
 The app lives in [`Liv/`](Liv): a React + TypeScript client (Vite, Tailwind, TanStack Query, Wouter, Leaflet) and an Express API on PostgreSQL through Drizzle ORM.
 
