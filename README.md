@@ -7,6 +7,7 @@
 Liv is a product concept, a working prototype and a small user-research project by [Michael Dashti](https://mdashti.vercel.app). This repository holds the prototype code and the full case study.
 
 - **Case study:** [Liv on mdashti.vercel.app](https://mdashti.vercel.app/#/projects) (visual) · [the written case study](docs/Liv_Canonical_PM_Case_Study.md) (full detail)
+- **Strategy and PRD:** [what I'd build next and how I'd measure it](docs/Liv_Strategy_and_PRD.md) (written October 2026)
 - **My role:** product concept, product decisions, prototype direction, discovery research, synthesis and concept testing. The prototype was built with AI-assisted development in Replit.
 - **Status:** a working prototype and a documented research trail. It has not launched, and no revenue or validated demand is claimed.
 
@@ -97,7 +98,7 @@ Listings are seeded sample data built around real Vancouver venue names (see [`L
 | **P1** | Increase confidence | Real-time wait time and ticket availability, recent photos and venue verification, nearby backup options |
 | **P2** | Enable transactions | Ticketing and reservation deep links, embedded transaction flows where justified |
 
-The next tests, in order: **supply reliability** (enough current local inventory in one neighbourhood?), **decision value** (does context reduce time-to-choice?), **personalization** (do people see why something was shown?), **group decisions** (does sharing help groups converge?) and **repeat value** (do people come back?). The reasoning behind each is in the [case study](docs/Liv_Canonical_PM_Case_Study.md#11-next-experiments-reduce-uncertainty-in-sequence).
+The next tests, in order: **supply reliability** (enough current local inventory in one neighbourhood?), **decision value** (does context reduce time-to-choice?), **personalization** (do people see why something was shown?), **group decisions** (does sharing help groups converge?) and **repeat value** (do people come back?). The reasoning behind each is in the [case study](docs/Liv_Canonical_PM_Case_Study.md#11-next-experiments-reduce-uncertainty-in-sequence). The full requirements, metrics and roadmap are in the [strategy and PRD](docs/Liv_Strategy_and_PRD.md).
 
 ---
 
@@ -127,6 +128,7 @@ curl -X POST http://localhost:5000/api/seed
 ```
 docs/
   Liv_Canonical_PM_Case_Study.md   the full case study: problem, research, V2 tests, priorities, metrics
+  Liv_Strategy_and_PRD.md          strategy, PRD (P0 to P2), metrics plan, roadmap, competitive scan
   assets/                          concept mockups used in this README and on the site
 Liv/
   client/                          React app (pages: Home, Map, Detail, Favorites, Profile, QR)
