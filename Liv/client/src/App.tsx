@@ -9,12 +9,14 @@ import { Profile } from "./pages/Profile";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "./pages/not-found";
 import { queryClient } from "@/lib/queryClient";
+import { SavedProvider } from "@/contexts/SavedContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
 function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="liv-ui-theme">
       <QueryClientProvider client={queryClient}>
+        <SavedProvider>
         <div className="min-h-screen bg-background text-foreground">
           <Switch>
             <Route path="/" component={Home} />
@@ -27,6 +29,7 @@ function App() {
           </Switch>
           <Toaster />
         </div>
+        </SavedProvider>
       </QueryClientProvider>
     </ThemeProvider>
   );

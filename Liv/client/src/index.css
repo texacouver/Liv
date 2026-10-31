@@ -56,3 +56,8 @@ button, a, [role="button"] { touch-action:manipulation; user-select:none; -webki
 .liv-detail-copy { background:#0d0e0f; }
 .liv-detail-rows p { background:#1a1c1d; border-color:rgba(255,255,255,.12); }
 @media (min-width:44rem) { .liv-poster-card:first-child .liv-poster-image { height:21rem; } }
+
+.liv-demo-note { margin: 1rem; color: #d1d1c9; font-size: .85rem; line-height: 1.5; }
+.liv-detail-copy .liv-demo-note { margin: 0 0 1rem; }
+.liv-detail-footer { position: static; padding: 1rem; }
+.liv-storage-warning { position: fixed; z-index: 40; right: 1rem; bottom: 5.5rem; left: 1rem; margin: 0 auto; max-width: 40rem; padding: .8rem; background: #272a28; color: #f4f2ed; }

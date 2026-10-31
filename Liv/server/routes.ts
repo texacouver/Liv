@@ -17,11 +17,26 @@ export function createRoutes(storage: IStorage) {
     }
   });
 
+  // GET /api/listings/search - Search listings
+  router.get("/listings/search", async (req, res) => {
+    try {
+      const query = typeof req.query.q === "string" ? req.query.q.trim() : "";
+      if (!query) {
+        return res.status(400).json({ error: "Search query is required" });
+      }
+
+      const listings = await storage.searchListings(query);
+      res.json(listings);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to search listings" });
+    }
+  });
+
   // GET /api/listings/:id - Get listing by ID
   router.get("/listings/:id", async (req, res) => {
     try {
-      const id = parseInt(req.params.id);
-      if (isNaN(id)) {
+      const id = Number(req.params.id);
+      if (!Number.isSafeInteger(id) || id <= 0) {
         return res.status(400).json({ error: "Invalid listing ID" });
       }
       
@@ -44,21 +59,6 @@ export function createRoutes(storage: IStorage) {
       res.json(listings);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch listings by type" });
-    }
-  });
-
-  // GET /api/listings/search - Search listings
-  router.get("/listings/search", async (req, res) => {
-    try {
-      const query = req.query.q as string;
-      if (!query) {
-        return res.status(400).json({ error: "Search query is required" });
-      }
-      
-      const listings = await storage.searchListings(query);
-      res.json(listings);
-    } catch (error) {
-      res.status(500).json({ error: "Failed to search listings" });
     }
   });
 
