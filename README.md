@@ -80,16 +80,22 @@ These findings led to a single decision surface that combines availability, dist
 | --- | --- | --- |
 | Ranked Tonight feed | Working | The feed ranks listings through a rule-based scoring API that weighs category preference, price range, tags, interaction history, ratings and recency. Not machine learning. |
 | Personalization | Partly working | The score is built to change per person, but there are no accounts yet, so every request is scored as one sample user (`mock-user-1`). |
-| Search and category filtering | Working | Search across listings, and filter by music, food and local offers. |
+| Search and category filtering | Working | Search listing names, and filter by music, food and local offers. Search errors have a retry control. |
 | Nearby map | Working | Leaflet map with a marker and popup per venue, and a list sorted by distance from your location. |
-| Event detail | Working | Price, place and timing for each listing, with its deal or ticket. |
-| QR deal codes | Partly working | Each deal opens a screen with its code and a countdown. Nothing validates or redeems the code at the venue, and there is no point-of-sale integration. |
-| Saved shortlist | Partly working | Save and remove places during a session. The list isn’t stored yet. |
+| Event detail | Working | Sample price range, location, end date and description, with save/remove and a demo-code preview. No live availability or ticket purchase. |
+| QR deal codes | Partly working | A labeled preview shows a sample code, decorative QR icon and expiry countdown. It is not a ticket, scannable QR implementation or redeemable offer. No venue validation or point-of-sale integration. |
+| Saved shortlist | Working locally | Home, Detail and Saved share one shortlist. IDs persist in browser local storage across reloads. No account or device sync; blocked storage falls back to the session with a visible warning. |
 | Learning from behaviour | Partly working | The server records interactions and preferences and feeds them into the score, but the current client doesn’t send those events yet. |
 | Profile and preferences | Concept | The screen is designed; the preferences API exists on the server but isn’t connected to it. |
 | Wait times, ticketing, sharing | Concept | Shown in the mockups above; proposed as the next priorities below. |
 
 Listings are seeded sample data built around real Vancouver venue names (see [`Liv/server/seed.ts`](Liv/server/seed.ts)). They are not live feeds.
+
+## Demo journey
+
+Home → search by listing name → View → save with the heart → Saved → reload → remove. The shortlist starts empty. Listings and dates are samples, prices and availability are unverified, and saves do not train the recommendation engine.
+
+See [demo verification and remaining limits](docs/Demo_Journey.md) for the repeatable check and capture instructions. Complete this check against the configured database before recording a portfolio demo or adding more polish.
 
 ## What I’d build next
 
@@ -112,8 +118,8 @@ The app lives in [`Liv/`](Liv): a React + TypeScript client (Vite, Tailwind, Tan
 You need Node.js 18+ and a PostgreSQL connection string.
 
 ```bash
-git clone https://github.com/texacouver/liv-app.git
-cd liv-app/Liv
+git clone https://github.com/texacouver/Liv.git
+cd Liv/Liv
 npm install
 export DATABASE_URL="postgres://…"   # your PostgreSQL connection string
 npm run db:push                      # create the tables
